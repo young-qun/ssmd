@@ -1,0 +1,67 @@
+server:
+  port: 9010
+spring:
+  datasource:
+    druid:
+      db-type: mysql
+      enable: true
+      initial-size: 20
+      min-idle: 5
+      max-active: 500
+      max-wait: 6000
+      time-between-eviction-runs-millis: 2000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filter:
+      #监控
+        stat:
+          slow-sql-millis: 1000
+          enabled: true
+          merge-sql: true
+          log-slow-sql: true
+#          防火墙
+        wall:
+          enabled: true
+          log-violation: true
+          throw-exception: false
+#          web视图
+      stat-view-servlet:
+        url-pattern: /druid/*
+        enabled: true
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.1.209:3306/zhucai_215_db?useUnicode=true&characterEncoding=UTF-8
+    password: jszc1239
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    host: 192.168.1.94
+    password: aH66lhxmDWnu
+    port: 13679
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 2
+
+mybatis-plus:
+#别名
+  type-aliases-package: com.zhcuai.app.*
+  global-config:
+    banner: false
+    db-config:
+      db-type: mysql
+      id-type: auto
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      field-strategy: not_null
+  configuration:
+#  开启驼峰
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    cache-enabled: true
