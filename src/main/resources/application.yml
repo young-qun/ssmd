@@ -1,5 +1,7 @@
 server:
   port: 9010
+  servlet:
+    context-path: /ssmd
 spring:
   datasource:
     druid:
@@ -34,15 +36,15 @@ spring:
         login-password: admin
         reset-enable: false
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://192.168.1.209:3306/zhucai_215_db?useUnicode=true&characterEncoding=UTF-8
-    password: jszc1239
+    url: jdbc:mysql://localhost:3306/zhucai_215_db?useUnicode=true&characterEncoding=UTF-8
+    password: 123456
     username: root
     driver-class-name: com.mysql.jdbc.Driver
   redis:
     database: 0
-    host: 192.168.1.94
-    password: aH66lhxmDWnu
-    port: 13679
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
     jedis:
       pool:
         max-active: 10

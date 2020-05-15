@@ -20,9 +20,9 @@ public class LoggerInterceptor  implements HandlerInterceptor{
         String url  = request.getRequestURI();
         sb.append(url);
         sb.append("--参数：params ");
-        while (request.getHeaderNames().hasMoreElements()){
-            sb.append(request.getHeaderNames().nextElement()).append(",");
-        }
+//        while (request.getHeaderNames().hasMoreElements()){
+//            sb.append(request.getHeaderNames().nextElement()).append(",");
+//        }
         logger.debug(sb.append("----开始时间：").append(System.currentTimeMillis()).toString());
         return true;
     }

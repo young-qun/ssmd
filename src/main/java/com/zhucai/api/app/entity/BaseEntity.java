@@ -17,25 +17,24 @@ public class BaseEntity {
     @TableId(type = IdType.AUTO)
     private  Long id;
 
-    @TableField(exist = true)
+    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
-    @TableField(exist = true)
+    @TableField(fill = FieldFill.INSERT)
     private Long createTime;
 
-    @TableField(exist = true)
+    @TableField(exist = true,fill = FieldFill.INSERT_UPDATE)
     private Long modifyUser;
 
-    @TableField(exist = true)
+    @TableField(exist = true,fill = FieldFill.INSERT_UPDATE)
     private Long modifyTime;
 
     @TableLogic(value = "1",delval = "3")
-    @TableField(exist = true,el = "default value 1")
+    @TableField(el = "default value 1")
     private Integer status;
 
 
     @Version
-    @TableField(exist = true,fill = FieldFill.INSERT_UPDATE,el = "default value 0")
     private Integer version;
 
 }
